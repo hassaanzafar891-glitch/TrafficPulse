@@ -1,0 +1,157 @@
+name: trafficpulse
+services:
+  backend:
+    build:
+      context: .
+      dockerfile: docker/backend/Dockerfile
+    cpus: 3.5
+    mem_limit: 2g
+    read_only: true
+    tmpfs:
+    - /tmp:rw,noexec,nosuid,size=64m
+    cap_drop:
+    - ALL
+    security_opt:
+    - no-new-privileges:true
+    environment:
+      OMP_NUM_THREADS: '4'
+      OPENBLAS_NUM_THREADS: '4'
+      MKL_NUM_THREADS: '4'
+      NUMEXPR_NUM_THREADS: '4'
+      NUMEXPR_MAX_THREADS: '4'
+    volumes:
+    - type: bind
+      source: ./artifacts/synthetic_xgboost/horizon_3.json
+      target: /app/artifacts/synthetic_xgboost/horizon_3.json
+      read_only: true
+      bind:
+        create_host_path: false
+    - type: bind
+      source: ./artifacts/synthetic_xgboost/horizon_6.json
+      target: /app/artifacts/synthetic_xgboost/horizon_6.json
+      read_only: true
+      bind:
+        create_host_path: false
+    - type: bind
+      source: ./artifacts/synthetic_xgboost/horizon_12.json
+      target: /app/artifacts/synthetic_xgboost/horizon_12.json
+      read_only: true
+      bind:
+        create_host_path: false
+    - type: bind
+      source: ./artifacts/synthetic_xgboost/preprocessing.json
+      target: /app/artifacts/synthetic_xgboost/preprocessing.json
+      read_only: true
+      bind:
+        create_host_path: false
+    - type: bind
+      source: ./artifacts/synthetic_xgboost/comparison.json
+      target: /app/artifacts/synthetic_xgboost/comparison.json
+      read_only: true
+      bind:
+        create_host_path: false
+    - type: bind
+      source: ./artifacts/synthetic_xgboost/experiment_config.json
+      target: /app/artifacts/synthetic_xgboost/experiment_config.json
+      read_only: true
+      bind:
+        create_host_path: false
+    - type: bind
+      source: ./artifacts/synthetic_uncertainty/phase3b-synthetic-split-conformal-v1/calibration_summary.json
+      target: /app/artifacts/synthetic_uncertainty/phase3b-synthetic-split-conformal-v1/calibration_summary.json
+      read_only: true
+      bind:
+        create_host_path: false
+    - type: bind
+      source: ./artifacts/synthetic_uncertainty/phase3b-synthetic-split-conformal-v1/experiment_config.json
+      target: /app/artifacts/synthetic_uncertainty/phase3b-synthetic-split-conformal-v1/experiment_config.json
+      read_only: true
+      bind:
+        create_host_path: false
+    - type: bind
+      source: ./artifacts/synthetic_controller/phase3c-synthetic-joint-controller-v1/controller_comparison.json
+      target: /app/artifacts/synthetic_controller/phase3c-synthetic-joint-controller-v1/controller_comparison.json
+      read_only: true
+      bind:
+        create_host_path: false
+    - type: bind
+      source: ./artifacts/synthetic_controller/phase3c-synthetic-joint-controller-v1/synthetic_decisions.json
+      target: /app/artifacts/synthetic_controller/phase3c-synthetic-joint-controller-v1/synthetic_decisions.json
+      read_only: true
+      bind:
+        create_host_path: false
+    - type: bind
+      source: ./artifacts/synthetic_controller/phase3c-synthetic-joint-controller-v1/experiment_config.json
+      target: /app/artifacts/synthetic_controller/phase3c-synthetic-joint-controller-v1/experiment_config.json
+      read_only: true
+      bind:
+        create_host_path: false
+    - type: bind
+      source: ./reports/generated/phase2b_synthetic_xgboost.json
+      target: /app/reports/generated/phase2b_synthetic_xgboost.json
+      read_only: true
+      bind:
+        create_host_path: false
+    - type: bind
+      source: ./reports/generated/phase3b_synthetic_uncertainty.json
+      target: /app/reports/generated/phase3b_synthetic_uncertainty.json
+      read_only: true
+      bind:
+        create_host_path: false
+    - type: bind
+      source: ./reports/generated/phase3c_synthetic_controller.json
+      target: /app/reports/generated/phase3c_synthetic_controller.json
+      read_only: true
+      bind:
+        create_host_path: false
+    healthcheck:
+      test:
+      - CMD
+      - python
+      - -c
+      - import json,urllib.request; r=json.load(urllib.request.urlopen('http://127.0.0.1:8000/health',
+        timeout=5)); assert r['ready'] is True and r['synthetic_only'] is True
+      interval: 10s
+      timeout: 8s
+      start_period: 90s
+      retries: 5
+    networks:
+    - demo
+  frontend:
+    build:
+      context: ./frontend
+      dockerfile: Dockerfile
+    cpus: 0.5
+    mem_limit: 128m
+    read_only: true
+    tmpfs:
+    - /tmp:rw,noexec,nosuid,size=32m
+    cap_drop:
+    - ALL
+    security_opt:
+    - no-new-privileges:true
+    ports:
+    - 127.0.0.1:8081:8080
+    depends_on:
+      backend:
+        condition: service_healthy
+    healthcheck:
+      test:
+      - CMD
+      - wget
+      - -q
+      - -O
+      - /dev/null
+      - http://127.0.0.1:8080/nginx-health
+      interval: 10s
+      timeout: 5s
+      retries: 3
+    networks:
+    - demo
+    - web
+networks:
+  demo:
+    internal: true
+  web:
+    driver: bridge
+    internal: false

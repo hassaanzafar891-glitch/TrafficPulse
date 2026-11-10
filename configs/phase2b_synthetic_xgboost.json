@@ -1,0 +1,34 @@
+{
+  "experiment_id": "phase2b-synthetic-xgboost-v1",
+  "data_origin": "synthetic_generated_not_real_traffic",
+  "frozen_real_data_protocol_modified": false,
+  "days": 28,
+  "sensors": 4,
+  "seed": 1729,
+  "horizons": [3, 6, 12],
+  "fit_partition": "train",
+  "selection_partition": "tuning",
+  "max_threads": 4,
+  "timeout_seconds": 1800,
+  "common_parameters": {
+    "objective": "reg:squarederror",
+    "tree_method": "hist",
+    "device": "cpu",
+    "n_jobs": 4,
+    "random_state": 1729,
+    "learning_rate": 0.1,
+    "max_bin": 64,
+    "subsample": 1.0,
+    "colsample_bytree": 1.0,
+    "reg_lambda": 1.0,
+    "verbosity": 0
+  },
+  "candidates": [
+    {"max_depth": 2, "n_estimators": 40},
+    {"max_depth": 3, "n_estimators": 60}
+  ],
+  "selection_rule": "lowest mean masked tuning MAE over horizons 3,6,12; exact ties prefer earlier candidate",
+  "strategy": "one global pooled-sensor direct regressor per scored horizon; no recursive predicted lags",
+  "feature_order": "12 standardized own-sensor lags oldest first, 12 observed flags, origin daily sin/cos and weekly sin/cos, one-hot synthetic sensor position",
+  "artifact_policy": "local-only synthetic model JSON, preprocessing/feature schema JSON and aggregate experiment JSON; no raw rows or windows"
+}

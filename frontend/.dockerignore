@@ -1,0 +1,16 @@
+# Independent frontend context: deny all except production build inputs.
+**
+!Dockerfile
+!nginx.conf
+!package.json
+!package-lock.json
+!index.html
+!vite.config.js
+!src/
+!src/**/
+!src/**/*.js
+!src/**/*.jsx
+!src/**/*.css
+# Test fixtures are not part of the production build.
+src/test/
+src/**/*.test.*

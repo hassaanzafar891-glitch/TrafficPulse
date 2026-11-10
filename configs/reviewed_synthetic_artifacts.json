@@ -1,0 +1,60 @@
+{
+  "data_origin": "synthetic_generated_not_real_traffic",
+  "artifacts": [
+    {
+      "path": "artifacts/synthetic_xgboost/horizon_3.json",
+      "size_bytes": 71641,
+      "sha256": "300b7cdd7057d236a9084174fcb90b5c68cbf809ff541c7a0525ef6a7c493583"
+    },
+    {
+      "path": "artifacts/synthetic_xgboost/horizon_6.json",
+      "size_bytes": 71798,
+      "sha256": "fe79c1e10d8f4d1d731077a581e23e22c8f4bba30f8828bc6743b12e028db8b5"
+    },
+    {
+      "path": "artifacts/synthetic_xgboost/horizon_12.json",
+      "size_bytes": 71863,
+      "sha256": "aa9be0a1558c69b42ff8784595016367b41b285063ab543bc70bcd86ca62144c"
+    },
+    {
+      "path": "artifacts/synthetic_xgboost/preprocessing.json",
+      "size_bytes": 1779,
+      "sha256": "72fde07bb13c7c4b28175b5035e1deeb67d0c9d9038b103fadac83a4e9c0aae2"
+    },
+    {
+      "path": "artifacts/synthetic_xgboost/comparison.json",
+      "size_bytes": 5808,
+      "sha256": "7ba46e67c1e727d54e431a02f8729d27619412e71c14e147eaab7fb44a1d3786"
+    },
+    {
+      "path": "artifacts/synthetic_xgboost/experiment_config.json",
+      "size_bytes": 1267,
+      "sha256": "d21230788f2074f2a2db2b534e33135362cfd3859769546fda9238e70bf1cb7e"
+    },
+    {
+      "path": "artifacts/synthetic_uncertainty/phase3b-synthetic-split-conformal-v1/calibration_summary.json",
+      "size_bytes": 4578,
+      "sha256": "fa17f60aad435765206f7826f754c42eb945f61f5a8b0a2c6071822c896f8776"
+    },
+    {
+      "path": "artifacts/synthetic_uncertainty/phase3b-synthetic-split-conformal-v1/experiment_config.json",
+      "size_bytes": 740,
+      "sha256": "1774c61d1a697cce378d9249aa27b4926825e9034b58b28e964cdcd34f07a519"
+    },
+    {
+      "path": "artifacts/synthetic_controller/phase3c-synthetic-joint-controller-v1/controller_comparison.json",
+      "size_bytes": 348906,
+      "sha256": "e3949a36b2fb513d87861071b17f2d6f15f680c8666139efcaae9e18d69c9843"
+    },
+    {
+      "path": "artifacts/synthetic_controller/phase3c-synthetic-joint-controller-v1/synthetic_decisions.json",
+      "size_bytes": 4939287,
+      "sha256": "cc503fab611cdae915083a2f95f47f77c04963add5e420027f0aae322b81c39d"
+    },
+    {
+      "path": "artifacts/synthetic_controller/phase3c-synthetic-joint-controller-v1/experiment_config.json",
+      "size_bytes": 1082,
+      "sha256": "027f52a4c4c7c262ee57e77842d3ad67891f6db91f334613faa845274248c1ac"
+    }
+  ]
+}

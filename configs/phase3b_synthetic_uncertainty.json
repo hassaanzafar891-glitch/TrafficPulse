@@ -1,0 +1,16 @@
+{
+  "experiment_id": "phase3b-synthetic-split-conformal-v1",
+  "data_origin": "synthetic_generated_not_real_traffic",
+  "nominal_coverage": 0.9,
+  "horizons": [3, 6, 12],
+  "calibration_role": "calibration",
+  "diagnostic_role": "calibration",
+  "diagnostic_scope": "in-sample calibration only; independent coverage not measured",
+  "fault_evaluation": false,
+  "quantile_rule": "min(n,ceil((n+1)*coverage)), one-based, no interpolation",
+  "max_threads": 4,
+  "timeout_seconds": 1800,
+  "fixture": {"days": 28, "sensors": 4, "seed": 1729},
+  "model_policy": "Restore frozen selected Phase 2B XGBoost JSONs; no refit or selection",
+  "interval_policy": "Symmetric pooled-sensor per-horizon absolute residual widths; no endpoint clipping"
+}

@@ -1,0 +1,19 @@
+{
+  "experiment_id": "phase3a-synthetic-input-faults-v2",
+  "data_origin": "synthetic_generated_not_real_traffic",
+  "partition": "tuning",
+  "synthetic_tuning_partition_code": 1,
+  "scope_note": "User-authorized synthetic tuning-only exploration; frozen real-data protocol is unchanged and keeps tuning clean.",
+  "rates": [0.0, 0.1, 0.2, 0.4],
+  "seeds": [1729, 2718, 31415],
+  "families": [["missing", "point"], ["missing", "contiguous"], ["stuck", "contiguous"], ["noisy", "point"], ["noisy", "contiguous"]],
+  "noise_std_multiplier": 0.2,
+  "block_rows": 12,
+  "episode_rows": 288,
+  "sampling_policy": "synthetic_ceil",
+  "sensor_rounding": "Synthetic-only ceil(rate * eligible cells or sensor count); report achieved rates. Frozen protocol_floor remains unchanged.",
+  "max_threads": 4,
+  "timeout_seconds": 1800,
+  "model_policy": "Frozen Phase 2B selected synthetic XGBoost JSON artifacts; train-only persistence and seasonal tables; no fault-driven model selection or refitting",
+  "artifact_policy": "Aggregate/per-seed synthetic metrics, selected synthetic sensor positions, block locations and mask/overlay hashes only; no observation/target arrays"
+}

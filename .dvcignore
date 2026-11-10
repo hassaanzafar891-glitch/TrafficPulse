@@ -1,0 +1,7 @@
+# Restricted data, local tracking and installed environments are outside this pipeline.
+/data/
+/reports/local/
+/artifacts/synthetic_mlflow/
+/.venv/
+/frontend/node_modules/
+/frontend/dist/

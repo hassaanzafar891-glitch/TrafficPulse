@@ -1,0 +1,99 @@
+{
+  "stages": {
+    "reviewed_bundle": {
+      "frozen": true,
+      "outs": [
+        "artifacts/dvc_foundation/reviewed_bundle"
+      ],
+      "cmd": "\".venv/Scripts/python.exe\" scripts/run_dvc_foundation.py snapshot",
+      "deps": [
+        "configs/reviewed_synthetic_artifacts.json",
+        "scripts/run_dvc_foundation.py",
+        "src/trafficpulse/dvc_foundation.py"
+      ]
+    },
+    "training_prefix": {
+      "cmd": "\".venv/Scripts/python.exe\" scripts/run_dvc_foundation.py prefix",
+      "deps": [
+        "scripts/run_dvc_foundation.py",
+        "src/trafficpulse/dvc_foundation.py",
+        "src/trafficpulse/synthetic.py",
+        "src/trafficpulse/__init__.py",
+        "configs/dvc_foundation.json",
+        "configs/phase6a-environment.txt",
+        "pyproject.toml"
+      ],
+      "params": [
+        {
+          "configs/dvc_foundation.json": [
+            "schema_version",
+            "data_origin",
+            "fixture",
+            "max_threads",
+            "timeout_seconds",
+            "allow_training",
+            "allow_calibration",
+            "allow_controller_selection",
+            "allow_final_test"
+          ]
+        }
+      ],
+      "outs": [
+        "artifacts/dvc_foundation/training_prefix.json"
+      ]
+    },
+    "verify_reviewed_bundle": {
+      "cmd": "\".venv/Scripts/python.exe\" scripts/run_dvc_foundation.py verify",
+      "deps": [
+        "src/trafficpulse/__init__.py",
+        "src/trafficpulse/baselines.py",
+        "src/trafficpulse/data.py",
+        "src/trafficpulse/synthetic.py",
+        "src/trafficpulse/metrics.py",
+        "src/trafficpulse/faults.py",
+        "src/trafficpulse/reliability.py",
+        "src/trafficpulse/uncertainty.py",
+        "src/trafficpulse/xgboost_baseline.py",
+        "src/trafficpulse/tracking.py",
+        "src/trafficpulse/experiment.py",
+        "src/trafficpulse/xgboost_experiment.py",
+        "src/trafficpulse/fault_experiment.py",
+        "src/trafficpulse/uncertainty_experiment.py",
+        "src/trafficpulse/controller_experiment.py",
+        "src/trafficpulse/dvc_foundation.py",
+        "scripts/run_synthetic_baselines.py",
+        "scripts/run_dvc_foundation.py",
+        "configs/evaluation_protocol.json",
+        "configs/phase2b_synthetic_xgboost.json",
+        "configs/phase3a_synthetic_faults.json",
+        "configs/phase3b_synthetic_uncertainty.json",
+        "configs/phase3c_synthetic_controller.json",
+        "configs/reviewed_synthetic_artifacts.json",
+        "configs/dvc_foundation.json",
+        "configs/phase6a-environment.txt",
+        "pyproject.toml",
+        "artifacts/dvc_foundation/reviewed_bundle",
+        "artifacts/dvc_foundation/training_prefix.json",
+        "scripts/run_local_dvc.py"
+      ],
+      "params": [
+        {
+          "configs/dvc_foundation.json": [
+            "schema_version",
+            "data_origin",
+            "fixture",
+            "max_threads",
+            "timeout_seconds",
+            "allow_training",
+            "allow_calibration",
+            "allow_controller_selection",
+            "allow_final_test"
+          ]
+        }
+      ],
+      "outs": [
+        "artifacts/dvc_foundation/verification.json"
+      ]
+    }
+  }
+}

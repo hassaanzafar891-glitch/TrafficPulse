@@ -1,0 +1,27 @@
+# Backend context: deny everything, then admit only reviewed serving inputs.
+**
+!pyproject.toml
+!docker/
+!docker/backend/
+!docker/backend/Dockerfile
+!docker/backend/container.py
+!configs/
+!configs/reviewed_synthetic_artifacts.json
+!configs/phase6a-environment.txt
+!src/
+!src/trafficpulse/
+!src/trafficpulse/__init__.py
+!src/trafficpulse/api/
+!src/trafficpulse/api/__init__.py
+!src/trafficpulse/api/app.py
+!src/trafficpulse/api/schemas.py
+!src/trafficpulse/api/service.py
+!src/trafficpulse/baselines.py
+!src/trafficpulse/data.py
+!src/trafficpulse/faults.py
+!src/trafficpulse/metrics.py
+!src/trafficpulse/reliability.py
+!src/trafficpulse/synthetic.py
+!src/trafficpulse/tracking.py
+!src/trafficpulse/xgboost_baseline.py
+!src/trafficpulse/xgboost_experiment.py

@@ -1,0 +1,22 @@
+{
+  "experiment_id": "phase3c-synthetic-joint-controller-v1",
+  "data_origin": "synthetic_generated_not_real_traffic",
+  "partition": "controller_selection",
+  "partition_code": 3,
+  "joint_decision": true,
+  "unavailable_thresholds": [0.1, 0.2, 0.4, 0.6],
+  "disagreement_thresholds": [1.0, 2.0, 3.0, "infinity"],
+  "clean_relative_mae_limit": 1.01,
+  "rates": [0.0, 0.1, 0.2, 0.4],
+  "seeds": [1729, 2718, 31415],
+  "families": [["missing", "point"], ["missing", "contiguous"], ["stuck", "contiguous"], ["noisy", "point"], ["noisy", "contiguous"]],
+  "sampling_policy": "synthetic_ceil",
+  "rounding_note": "Phase 3A four-sensor adaptation only: ceil for cells/sensors; frozen protocol_floor remains unchanged",
+  "block_rows": 12,
+  "episode_rows": 288,
+  "noise_std_multiplier": 0.2,
+  "max_threads": 4,
+  "timeout_seconds": 1800,
+  "interval_policy": "No intervals emitted; validity unresolved for fallback or switched forecasts",
+  "selection_note": "Select only on controller-selection clean and all 45 faults; report selection-set diagnostics, not independent validation"
+}

@@ -1,0 +1,15 @@
+[project]
+name = "trafficpulse"
+version = "0.0.0"
+description = "CPU-only historical traffic forecasting and reliability research"
+readme = "README.md"
+requires-python = ">=3.12,<3.13"
+# Phase 2A uses existing NumPy/threadpoolctl; tests use standard-library unittest.
+dependencies = ["numpy==2.5.4", "threadpoolctl==3.8.0"]
+
+[project.optional-dependencies]
+tracking = ["mlflow==3.18.0"]
+xgboost = ["xgboost==3.4.1", "psutil==7.2.2"]
+backend = ["fastapi==0.162.2", "uvicorn==0.54.0", "httpx==0.28.1"]
+
+dvc = ["dvc==3.67.1"]

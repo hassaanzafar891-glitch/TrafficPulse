@@ -1,0 +1,16 @@
+{
+  "schema_version": 1,
+  "data_origin": "synthetic_generated_not_real_traffic",
+  "fixture": {
+    "days": 28,
+    "sensors": 4,
+    "seed": 1729,
+    "stop_rows": 5644
+  },
+  "max_threads": 4,
+  "timeout_seconds": 1800,
+  "allow_training": false,
+  "allow_calibration": false,
+  "allow_controller_selection": false,
+  "allow_final_test": false
+}

@@ -1,0 +1,153 @@
+{
+  "interval_seconds": 300,
+  "index_convention": "zero-based start-inclusive stop-exclusive raw row positions",
+  "outer_split_ratios": [
+    0.7,
+    0.1,
+    0.2
+  ],
+  "window": {
+    "input_steps": 12,
+    "target_steps": 12,
+    "evaluation_horizons": [
+      3,
+      6,
+      12
+    ],
+    "stride": 1,
+    "input_rows": "[t-11,t] inclusive",
+    "target_rows": "[t+1,t+12] inclusive",
+    "origin_bounds_for_partition": "start+11 <= t <= stop-13",
+    "count_formula": "max(0,stop-start-23)",
+    "allow_cross_partition_windows": false,
+    "drop_all_missing_target_windows": false,
+    "drop_gap_crossing_windows": true
+  },
+  "zero_handling": {
+    "ambiguous_not_fault_ground_truth": true,
+    "primary_target_mask": "finite(y) and y > 0 on unchanged original targets",
+    "input_valid_mask": "finite(x) and x > 0",
+    "input_imputation": "within-window causal forward fill; training nonzero per-sensor median at window start; training global nonzero median if sensor unavailable",
+    "forward_fill_carry_across_windows_or_partitions": false,
+    "include_missingness_indicator": true,
+    "scaler": "per-sensor mean and population std of finite positive train observations; std=1 if zero; frozen after train",
+    "mask_injected_noisy_or_stuck_using_oracle": false,
+    "fit_partition": "train"
+  },
+  "model_selection": {
+    "fit_partition": "train",
+    "tune_partition": "tuning",
+    "baselines": [
+      "persistence",
+      "training_weekly_seasonal_mean",
+      "ridge"
+    ],
+    "ridge_alphas": [
+      0.1,
+      1.0,
+      10.0,
+      100.0
+    ],
+    "model_seed": 1729,
+    "criterion": "mean of micro masked MAE over horizons 3,6,12 on clean tuning only",
+    "refit_on_validation_or_calibration": false
+  },
+  "intervals": {
+    "partition": "calibration",
+    "nominal_coverage": 0.9,
+    "method": "absolute-residual split-calibration; pooled sensors separately per model and each horizon; order statistic min(n,ceil((n+1)*0.9))",
+    "fault_condition": "clean only",
+    "recalibrate_after_controller_selection": false,
+    "distribution_free_time_series_guarantee_claimed": false
+  },
+  "faults": {
+    "implemented_or_generated": false,
+    "application": "separate input observation overlay only; immutable clean targets",
+    "rates": [
+      0.0,
+      0.1,
+      0.2,
+      0.4
+    ],
+    "selection_seeds": [
+      1729,
+      2718,
+      31415
+    ],
+    "final_test_seeds": [
+      104729,
+      130363,
+      155921
+    ],
+    "rng": "NumPy Generator(PCG64) with SeedSequence([base_seed,partition_code,kind_code,mode_code])",
+    "partition_codes": {
+      "controller_selection": 3,
+      "test": 4
+    },
+    "kind_codes": {
+      "missing": 1,
+      "stuck": 2,
+      "noisy": 3
+    },
+    "mode_codes": {
+      "point": 1,
+      "contiguous": 2
+    },
+    "modes_by_kind": {
+      "missing": [
+        "point",
+        "contiguous"
+      ],
+      "stuck": [
+        "contiguous"
+      ],
+      "noisy": [
+        "point",
+        "contiguous"
+      ]
+    },
+    "contiguous_block_rows": 12,
+    "episode_rows": 288,
+    "point_count_rule": "floor(rate * originally finite-positive input-stream cells)",
+    "contiguous_sensor_count_rule": "floor(rate * sensor_count)",
+    "noise_std_multiplier": 0.2,
+    "clip_noisy_values_below_zero": true,
+    "mix_fault_kinds": false,
+    "same_overlay_across_models_and_overlapping_windows": true
+  },
+  "controller_selection": {
+    "partition": "controller_selection",
+    "unavailable_fraction_thresholds": [
+      0.1,
+      0.2,
+      0.4,
+      0.6
+    ],
+    "model_disagreement_sigma_thresholds": [
+      1.0,
+      2.0,
+      3.0,
+      "infinity"
+    ],
+    "include_always_primary_candidate": true,
+    "clean_mae_relative_degradation_limit": 0.01,
+    "oracle_fault_mask_allowed": false,
+    "criterion": "equal-weight mean per-horizon MAE across five fault families, positive rates and three selection seeds; clean constraint; ties prefer fewer fallbacks then threshold order"
+  },
+  "final_test": {
+    "score_now": false,
+    "single_frozen_evaluation_campaign": true,
+    "preregister_all_model_and_scenario_outputs": true,
+    "fit_or_tune_on_test": false,
+    "online_model_or_threshold_updates": false
+  },
+  "resources": {
+    "max_cpu_threads": 4,
+    "max_run_seconds": 1800,
+    "gpu": false
+  },
+  "protocol_id": "synthetic-public-policy-v1",
+  "document": "docs/EVALUATION_PROTOCOL.md",
+  "scope": "Policy-only public derivative; original real-data audit identity, observed statistics and instantiated boundaries excluded. No original research file modified.",
+  "validation_subdivision_rule": "floor(0.4*validation_rows) tuning, floor(0.3*validation_rows) calibration, remainder controller_selection"
+}

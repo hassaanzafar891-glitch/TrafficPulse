@@ -1,0 +1,654 @@
+{
+  "files": [
+    {
+      "category": "docker",
+      "disposition": "unchanged_copy",
+      "path": ".dockerignore",
+      "sha256": "c9328f76a7fade022bf6e9bf14fdcf7a4f0112c4995e838bbdda3719e7de0b68",
+      "size_bytes": 757
+    },
+    {
+      "category": "dvc_configuration",
+      "disposition": "unchanged_copy",
+      "path": ".dvc/.gitignore",
+      "sha256": "b394ba1882ecaf58190383f55f76c9975c9744eee6deab0d27b252402c93c59d",
+      "size_bytes": 29
+    },
+    {
+      "category": "dvc_configuration",
+      "disposition": "unchanged_copy",
+      "path": ".dvc/config",
+      "sha256": "5474c9222bb02a226633843d9e9f0c92cc7805d705bd99e2528ff1f62d5e65eb",
+      "size_bytes": 80
+    },
+    {
+      "category": "dvc_configuration",
+      "disposition": "unchanged_copy",
+      "path": ".dvcignore",
+      "sha256": "6096f7cf9b3020e515757117802927a547bcfc4e1f140fcfc71a74a61c1a3561",
+      "size_bytes": 195
+    },
+    {
+      "category": "security_configuration",
+      "disposition": "sanitized_copy",
+      "path": ".env.example",
+      "sha256": "bedffc5025592774c0f18b792ce01b43c6c3bb45ee1ab7b61b910577fddfb533",
+      "size_bytes": 645
+    },
+    {
+      "category": "ci",
+      "disposition": "sanitized_derivative",
+      "path": ".github/workflows/ci.yml",
+      "sha256": "0ce0ea115c4cfafb9cfc798aecc30f6013adb77719f6df1204411a9184ad6090",
+      "size_bytes": 2619
+    },
+    {
+      "category": "security_configuration",
+      "disposition": "unchanged_copy",
+      "path": ".gitignore",
+      "sha256": "01d03c206081f1c04556733cb40d2b28aa9edc49b41326c4ae617663b51119a1",
+      "size_bytes": 1374
+    },
+    {
+      "category": "documentation",
+      "disposition": "sanitized_derivative",
+      "path": "README.md",
+      "sha256": "debe9fb1a718633ac343cd45728d77d496a27a51ecf381f155ff9e875c0400bd",
+      "size_bytes": 3715
+    },
+    {
+      "category": "docker",
+      "disposition": "unchanged_copy",
+      "path": "compose.yaml",
+      "sha256": "5944e503d671199091feb006519a7ee8986ae987a1b2eb8fa44f4b283334e30a",
+      "size_bytes": 5075
+    },
+    {
+      "category": "configuration",
+      "disposition": "unchanged_copy",
+      "path": "configs/ci-requirements.txt",
+      "sha256": "8ff0cb5b67fda9620a0bec12b95c82aea64aed68f2f03e4d3f3663e1a8e954db",
+      "size_bytes": 426
+    },
+    {
+      "category": "configuration",
+      "disposition": "sanitized_copy",
+      "path": "configs/dagshub_readiness.json",
+      "sha256": "f4e93c4fc11454ed524aaf1ad3246f498254b0919a50b8d48f651f732b864e45",
+      "size_bytes": 2408
+    },
+    {
+      "category": "configuration",
+      "disposition": "unchanged_copy",
+      "path": "configs/dvc_foundation.json",
+      "sha256": "cc0136c46df42949d28bb6b5e48be6e234a08931dcf2132d1de2255a9e305f92",
+      "size_bytes": 365
+    },
+    {
+      "category": "configuration",
+      "disposition": "policy_only_derivative",
+      "path": "configs/evaluation_protocol.json",
+      "sha256": "c0b1eaf6303e92b6a3c5537d79b9341f6bf0a967400b233045e094b5f966539b",
+      "size_bytes": 4719
+    },
+    {
+      "category": "configuration",
+      "disposition": "unchanged_copy",
+      "path": "configs/phase2b_synthetic_xgboost.json",
+      "sha256": "d21230788f2074f2a2db2b534e33135362cfd3859769546fda9238e70bf1cb7e",
+      "size_bytes": 1267
+    },
+    {
+      "category": "configuration",
+      "disposition": "unchanged_copy",
+      "path": "configs/phase3a_synthetic_faults.json",
+      "sha256": "b9f5513c9295700c1d01b1fbcb34548fccdc84e7237c16ec077d11bed59f8ddc",
+      "size_bytes": 1165
+    },
+    {
+      "category": "configuration",
+      "disposition": "unchanged_copy",
+      "path": "configs/phase3b_synthetic_uncertainty.json",
+      "sha256": "1774c61d1a697cce378d9249aa27b4926825e9034b58b28e964cdcd34f07a519",
+      "size_bytes": 740
+    },
+    {
+      "category": "configuration",
+      "disposition": "unchanged_copy",
+      "path": "configs/phase3c_synthetic_controller.json",
+      "sha256": "027f52a4c4c7c262ee57e77842d3ad67891f6db91f334613faa845274248c1ac",
+      "size_bytes": 1082
+    },
+    {
+      "category": "configuration",
+      "disposition": "sanitized_copy",
+      "path": "configs/phase6a-environment.txt",
+      "sha256": "f5946358e47876143799dafd39dea749e812e0f599a4aa4102f58293028c212f",
+      "size_bytes": 109
+    },
+    {
+      "category": "configuration",
+      "disposition": "unchanged_copy",
+      "path": "configs/reviewed_synthetic_artifacts.json",
+      "sha256": "8f2061f822bc2c6fa5e7e92139198276d54e1365f19f04c84851e1c677b166f5",
+      "size_bytes": 2417
+    },
+    {
+      "category": "placeholder",
+      "disposition": "new",
+      "path": "data/.gitkeep",
+      "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+      "size_bytes": 0
+    },
+    {
+      "category": "docker",
+      "disposition": "unchanged_copy",
+      "path": "docker/backend/Dockerfile",
+      "sha256": "d3a3c18c17ebe14dab13ddc1dbbff28425fcbd394ea272a220a3543ea0d66fb8",
+      "size_bytes": 1165
+    },
+    {
+      "category": "docker",
+      "disposition": "unchanged_copy",
+      "path": "docker/backend/container.py",
+      "sha256": "f6464f4b907a7a49ea5bf4355523a161fbcbed1b8e291658de4455e5ce5b7342",
+      "size_bytes": 3849
+    },
+    {
+      "category": "documentation",
+      "disposition": "new",
+      "path": "docs/DOCKER.md",
+      "sha256": "dc9a2c2f86d15321892340076f49c4be6b491a4be8a08fab5e8db71232d93243",
+      "size_bytes": 3059
+    },
+    {
+      "category": "documentation",
+      "disposition": "new",
+      "path": "docs/EVALUATION_PROTOCOL.md",
+      "sha256": "ed95e37a6740704c288a034150105271965d38cd3a4c26c8b9ef8415cda0777e",
+      "size_bytes": 2096
+    },
+    {
+      "category": "documentation",
+      "disposition": "sanitized_derivative",
+      "path": "docs/PUBLIC_EXPORT_REVIEW.md",
+      "sha256": "730bf55567d4f99a3450f6c1b3ea5192c75cad2ec91a1dd55626843d8fa03335",
+      "size_bytes": 6381
+    },
+    {
+      "category": "dvc_configuration",
+      "disposition": "unchanged_copy",
+      "path": "dvc.yaml",
+      "sha256": "96489a30c09567ec6c17132732137922704088e9240fe060e592f254d60cf164",
+      "size_bytes": 3310
+    },
+    {
+      "category": "frontend_configuration",
+      "disposition": "unchanged_copy",
+      "path": "frontend/.dockerignore",
+      "sha256": "6e94e3e3e382616231d4d4b8e3d20afacfbfa5143f1976f60ed8c24655963ef8",
+      "size_bytes": 297
+    },
+    {
+      "category": "frontend_configuration",
+      "disposition": "unchanged_copy",
+      "path": "frontend/.env.example",
+      "sha256": "ffa7999162a2b29e098c03598e7339fc382990109aea387f031c1db61cb6d0df",
+      "size_bytes": 273
+    },
+    {
+      "category": "frontend_configuration",
+      "disposition": "unchanged_copy",
+      "path": "frontend/Dockerfile",
+      "sha256": "d3a07c74ddf0a5af9c0ab046673d26c0f34d142d10f4c4e32f9623036b8114e7",
+      "size_bytes": 533
+    },
+    {
+      "category": "frontend_configuration",
+      "disposition": "unchanged_copy",
+      "path": "frontend/index.html",
+      "sha256": "232f998b13de55035ef774462c68bd99f6d1af63afff64edb26af707b876d26f",
+      "size_bytes": 481
+    },
+    {
+      "category": "frontend_configuration",
+      "disposition": "unchanged_copy",
+      "path": "frontend/nginx.conf",
+      "sha256": "df8ca72eb913243a98e4bbe7c12c01787ccacc66e9bc65d7a0335ce1f4a2fa37",
+      "size_bytes": 1138
+    },
+    {
+      "category": "frontend_configuration",
+      "disposition": "unchanged_copy",
+      "path": "frontend/package-lock.json",
+      "sha256": "a782611c94284242790bb7c49f8babc15911fe767438208f56691cf106921e47",
+      "size_bytes": 69336
+    },
+    {
+      "category": "frontend_configuration",
+      "disposition": "unchanged_copy",
+      "path": "frontend/package.json",
+      "sha256": "3eb20ea55009264f58ad6a24b220b93e8d2811f48728f265be6e0bb1f3b0091a",
+      "size_bytes": 639
+    },
+    {
+      "category": "frontend_source_tests",
+      "disposition": "unchanged_copy",
+      "path": "frontend/src/App.jsx",
+      "sha256": "d765237d7f2e12661c168efaaf67e231bc62ceb366e7f611e01c0cda6fb36af2",
+      "size_bytes": 5783
+    },
+    {
+      "category": "frontend_source_tests",
+      "disposition": "unchanged_copy",
+      "path": "frontend/src/App.test.jsx",
+      "sha256": "62126330f998a878af23b39f080a7bfc7633c4be31578fff0faf89fe48f14fe1",
+      "size_bytes": 10907
+    },
+    {
+      "category": "frontend_source_tests",
+      "disposition": "unchanged_copy",
+      "path": "frontend/src/api/client.js",
+      "sha256": "c9b400822e99126d133299a79e6e1556a6736e3ecc452dbd4b7d54f40f68b152",
+      "size_bytes": 6409
+    },
+    {
+      "category": "frontend_source_tests",
+      "disposition": "unchanged_copy",
+      "path": "frontend/src/api/client.test.js",
+      "sha256": "57f801774da28517358100074f052f9c350e3728a87f314d2973232a1627f934",
+      "size_bytes": 5115
+    },
+    {
+      "category": "frontend_source_tests",
+      "disposition": "unchanged_copy",
+      "path": "frontend/src/components/DemoGuide.jsx",
+      "sha256": "7a490e5bda9fcc0a181f7baed26ffea329c1cc28427c98227bb8f0a1d69365da",
+      "size_bytes": 1858
+    },
+    {
+      "category": "frontend_source_tests",
+      "disposition": "unchanged_copy",
+      "path": "frontend/src/components/Details.jsx",
+      "sha256": "082a6e18216d8d97ca422321ae95b7dd970114cc388b9a63c72621066787c0eb",
+      "size_bytes": 3705
+    },
+    {
+      "category": "frontend_source_tests",
+      "disposition": "unchanged_copy",
+      "path": "frontend/src/components/Forecasts.jsx",
+      "sha256": "397b0f85c7352cede3dc894f1ee497b7e467705505a6d6f391f9cc90b20c42a6",
+      "size_bytes": 1774
+    },
+    {
+      "category": "frontend_source_tests",
+      "disposition": "unchanged_copy",
+      "path": "frontend/src/components/ReplayControls.jsx",
+      "sha256": "c783ee020f3d4187bf3bcc5f22f3ae1182fd2d7b8426547c0e0168c104710390",
+      "size_bytes": 3214
+    },
+    {
+      "category": "frontend_source_tests",
+      "disposition": "unchanged_copy",
+      "path": "frontend/src/components/TrafficChart.jsx",
+      "sha256": "5fbe81c8e54eaba2eefd2b80159dcda1852a2b0369d3d4313422129c600a0123",
+      "size_bytes": 8173
+    },
+    {
+      "category": "frontend_source_tests",
+      "disposition": "unchanged_copy",
+      "path": "frontend/src/components/TrafficChart.test.jsx",
+      "sha256": "e2e71e129bbfd7dbd576975eb71e17b18e36d03d3e458ec40bf6903c55af9c7c",
+      "size_bytes": 2780
+    },
+    {
+      "category": "frontend_source_tests",
+      "disposition": "unchanged_copy",
+      "path": "frontend/src/hooks/useDashboard.js",
+      "sha256": "5c064725af943ff694223fb4f4791208635211b401287a2e9186808594bce69e",
+      "size_bytes": 2436
+    },
+    {
+      "category": "frontend_source_tests",
+      "disposition": "unchanged_copy",
+      "path": "frontend/src/main.jsx",
+      "sha256": "38cc9e15aca811fae9cd8880dc51be1752f8b708e1a4f29b8ffa4ef1de7c5761",
+      "size_bytes": 225
+    },
+    {
+      "category": "frontend_source_tests",
+      "disposition": "unchanged_copy",
+      "path": "frontend/src/styles.css",
+      "sha256": "ed16fe496e947bc059642d03bc44409dce3a6a5616850eebcde1add777c70cce",
+      "size_bytes": 20355
+    },
+    {
+      "category": "frontend_source_tests",
+      "disposition": "unchanged_copy",
+      "path": "frontend/src/test/fixtures.js",
+      "sha256": "ffdb68881bdbcf5e1bd9bbdb07d461f5f9c24c4672f5d026ddc7a54473eadeba",
+      "size_bytes": 3129
+    },
+    {
+      "category": "frontend_source_tests",
+      "disposition": "unchanged_copy",
+      "path": "frontend/src/test/setup.js",
+      "sha256": "268e7200d092daa3225eb06790ed72842e5d3234a53980c90ff463d7b81528d3",
+      "size_bytes": 150
+    },
+    {
+      "category": "frontend_source_tests",
+      "disposition": "unchanged_copy",
+      "path": "frontend/src/utils/presentation.js",
+      "sha256": "54050872d85e5f0fc424f1cfd6d70318fa1bf534100bff1e34c0c6ace05d1bc8",
+      "size_bytes": 1412
+    },
+    {
+      "category": "frontend_source_tests",
+      "disposition": "unchanged_copy",
+      "path": "frontend/src/visualizations/series.js",
+      "sha256": "b55203d7b73428a9d822d3b7279a74567d3559ff22c59b616f2f45818d8cbed9",
+      "size_bytes": 1460
+    },
+    {
+      "category": "frontend_source_tests",
+      "disposition": "unchanged_copy",
+      "path": "frontend/src/visualizations/series.test.js",
+      "sha256": "b70d1268c6325d0ef5f883416e9e9e6385bf410d207b79eeb309814b621a3e87",
+      "size_bytes": 4017
+    },
+    {
+      "category": "frontend_configuration",
+      "disposition": "unchanged_copy",
+      "path": "frontend/vite.config.js",
+      "sha256": "5cadf6ef13ef13e6552d84cef285de5f534d30a9800a77dcd759945d8e9a033e",
+      "size_bytes": 889
+    },
+    {
+      "category": "dependency_manifest",
+      "disposition": "unchanged_copy",
+      "path": "pyproject.toml",
+      "sha256": "6690e04e27b0d0fa4f5dd056d0741300547af24adde1fb602bbfa582b360ed39",
+      "size_bytes": 538
+    },
+    {
+      "category": "placeholder",
+      "disposition": "new",
+      "path": "reports/.gitkeep",
+      "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+      "size_bytes": 0
+    },
+    {
+      "category": "scripts",
+      "disposition": "unchanged_copy",
+      "path": "scripts/run_backend.py",
+      "sha256": "5760e3b607dc49a9e16bc12c989379b833515fc8f08882c851e8cb217ebc542b",
+      "size_bytes": 585
+    },
+    {
+      "category": "scripts",
+      "disposition": "unchanged_copy",
+      "path": "scripts/run_ci_checks.py",
+      "sha256": "2726fa71334fac5a236b8bc172f24f584d8bf971235ee2014e767f478e8dedc4",
+      "size_bytes": 3065
+    },
+    {
+      "category": "scripts",
+      "disposition": "unchanged_copy",
+      "path": "scripts/run_dvc_foundation.py",
+      "sha256": "069e63ba6bbf42143e406974101500b7ac6c5d92c3715ffffde371472a2ee350",
+      "size_bytes": 2034
+    },
+    {
+      "category": "scripts",
+      "disposition": "unchanged_copy",
+      "path": "scripts/run_local_dvc.py",
+      "sha256": "1adc6ea28ba09fe2ed2f21c85c80a231339703e7f472ffc3c3a718af25c06a4e",
+      "size_bytes": 2362
+    },
+    {
+      "category": "scripts",
+      "disposition": "unchanged_copy",
+      "path": "scripts/run_synthetic_baselines.py",
+      "sha256": "32d7674bb3492c4d1ae9240ee536af02fb723bda4cd686a4ddf84f4d7d5525b6",
+      "size_bytes": 3130
+    },
+    {
+      "category": "scripts",
+      "disposition": "sanitized_derivative",
+      "path": "scripts/validate_ci.py",
+      "sha256": "9c47a9c994469f9dd2928a19597c2bf97401a3a72bad2ce7b33be2bcdebd8acd",
+      "size_bytes": 4185
+    },
+    {
+      "category": "python_source",
+      "disposition": "unchanged_copy",
+      "path": "src/trafficpulse/__init__.py",
+      "sha256": "bfd6ce07b0d342670456702eab52f6a528a6daa4fe105c7237f436742f756da8",
+      "size_bytes": 74
+    },
+    {
+      "category": "python_source",
+      "disposition": "unchanged_copy",
+      "path": "src/trafficpulse/api/__init__.py",
+      "sha256": "2b5de73afcf6f8425307975678f9a36ab933bbf02b766e18fd8620f652525a58",
+      "size_bytes": 56
+    },
+    {
+      "category": "python_source",
+      "disposition": "unchanged_copy",
+      "path": "src/trafficpulse/api/app.py",
+      "sha256": "03f79d8a1705414a400ddfa16b493a38798b29ffa2c98ad545d6ae798d33a5d4",
+      "size_bytes": 2424
+    },
+    {
+      "category": "python_source",
+      "disposition": "unchanged_copy",
+      "path": "src/trafficpulse/api/schemas.py",
+      "sha256": "c404cfcb93e49e89e371704f8a243f33d6eca192b4ce111ae56b1717d3f34d9b",
+      "size_bytes": 5085
+    },
+    {
+      "category": "python_source",
+      "disposition": "unchanged_copy",
+      "path": "src/trafficpulse/api/service.py",
+      "sha256": "b41ebf104daa6a3e3d233cdf4c74e9b61b663eeb93445aa1873c7a5601bc636e",
+      "size_bytes": 11630
+    },
+    {
+      "category": "python_source",
+      "disposition": "unchanged_copy",
+      "path": "src/trafficpulse/baselines.py",
+      "sha256": "4729cc10865448d3944b0ef1aa52771337c3558c0fd1d96f11bb3aa1e016dedb",
+      "size_bytes": 2067
+    },
+    {
+      "category": "python_source",
+      "disposition": "unchanged_copy",
+      "path": "src/trafficpulse/controller_experiment.py",
+      "sha256": "679032eeec96ff73f71721f20568e337ab52fe2c3365031cbdd125083670aaec",
+      "size_bytes": 11167
+    },
+    {
+      "category": "python_source",
+      "disposition": "unchanged_copy",
+      "path": "src/trafficpulse/data.py",
+      "sha256": "5138c2746750d250f74227ebbc6c61d1cb7bd1490e59ed91adeb5ff70f39aa6c",
+      "size_bytes": 4915
+    },
+    {
+      "category": "python_source",
+      "disposition": "unchanged_copy",
+      "path": "src/trafficpulse/dvc_foundation.py",
+      "sha256": "1a2a5acf5df676e018c76ef5b9852d989ff42695332349ce9968942dc270d082",
+      "size_bytes": 9938
+    },
+    {
+      "category": "python_source",
+      "disposition": "unchanged_copy",
+      "path": "src/trafficpulse/experiment.py",
+      "sha256": "fab33f5c375773d04b7dd239de64adf7945798f919b15228d0f8c7a741f8970c",
+      "size_bytes": 3373
+    },
+    {
+      "category": "python_source",
+      "disposition": "unchanged_copy",
+      "path": "src/trafficpulse/fault_experiment.py",
+      "sha256": "60ade2fd0e87774ba81d209d5804ded3311f0aa466a7beaffc188fd44efc2b34",
+      "size_bytes": 11204
+    },
+    {
+      "category": "python_source",
+      "disposition": "unchanged_copy",
+      "path": "src/trafficpulse/faults.py",
+      "sha256": "dbf0c22012088738bf6e273b79e27ec1c6d531eeadb2f16031ccebfdeec669a8",
+      "size_bytes": 8298
+    },
+    {
+      "category": "python_source",
+      "disposition": "unchanged_copy",
+      "path": "src/trafficpulse/metrics.py",
+      "sha256": "b0c3068e91d80b62a9d36e46b03c9c7eb5963fc2a26506d0b7a48bdd21dbb9e1",
+      "size_bytes": 1589
+    },
+    {
+      "category": "python_source",
+      "disposition": "unchanged_copy",
+      "path": "src/trafficpulse/reliability.py",
+      "sha256": "3a85d6d712e6a425264303333462b176d05c8297033303b71a3af7058fea2c30",
+      "size_bytes": 7332
+    },
+    {
+      "category": "python_source",
+      "disposition": "unchanged_copy",
+      "path": "src/trafficpulse/synthetic.py",
+      "sha256": "4c52122f69181e49cfd6cc3213162e6260c08b6e8870a88ec53aaf6529055e6a",
+      "size_bytes": 2231
+    },
+    {
+      "category": "python_source",
+      "disposition": "unchanged_copy",
+      "path": "src/trafficpulse/tracking.py",
+      "sha256": "11a67c8d307731650a0ecec5caa085de28d2f0b564fe1ac454a81f9b987bde6c",
+      "size_bytes": 2552
+    },
+    {
+      "category": "python_source",
+      "disposition": "unchanged_copy",
+      "path": "src/trafficpulse/uncertainty.py",
+      "sha256": "64628e52aea3cc2019c85c81db4a6fb4b9b6742a775512b1ec1c80a36e53c178",
+      "size_bytes": 4224
+    },
+    {
+      "category": "python_source",
+      "disposition": "unchanged_copy",
+      "path": "src/trafficpulse/uncertainty_experiment.py",
+      "sha256": "2cebb512e324f76312ad8d69d6a234afb4ad8f251e874c283fa7f4422afb1e2b",
+      "size_bytes": 7987
+    },
+    {
+      "category": "python_source",
+      "disposition": "unchanged_copy",
+      "path": "src/trafficpulse/xgboost_baseline.py",
+      "sha256": "9241aa342600d6028677fd3cd1f13b8f9230d15d3239c1f17201daedc1349d78",
+      "size_bytes": 6909
+    },
+    {
+      "category": "python_source",
+      "disposition": "unchanged_copy",
+      "path": "src/trafficpulse/xgboost_experiment.py",
+      "sha256": "f438a7fa64434cddaceb22f845ad2678f9b8e39c9d2110895ee66accd89cae22",
+      "size_bytes": 6883
+    },
+    {
+      "category": "python_tests",
+      "disposition": "unchanged_copy",
+      "path": "tests/test_api.py",
+      "sha256": "7ec12274eab3754ae734b54da154506b1bd7213cdc3b71cc1c703018c70fb61e",
+      "size_bytes": 16967
+    },
+    {
+      "category": "python_tests",
+      "disposition": "unchanged_copy",
+      "path": "tests/test_api_offline.py",
+      "sha256": "7ee6b35ad7654f58e4ffad24404dba4833c634aa54902e9b00208edc564c6034",
+      "size_bytes": 4896
+    },
+    {
+      "category": "python_tests",
+      "disposition": "unchanged_copy",
+      "path": "tests/test_baselines.py",
+      "sha256": "d2fac23b8ca2439050d722b20bbbedc7472289ffa3ffa9b6176de6f590bdaa56",
+      "size_bytes": 12417
+    },
+    {
+      "category": "python_tests",
+      "disposition": "unchanged_copy",
+      "path": "tests/test_ci_foundation.py",
+      "sha256": "512a4b79076d606fd84aab3a6b09fd9c2545101177cca3f6d54ccefcc4674e99",
+      "size_bytes": 2514
+    },
+    {
+      "category": "python_tests",
+      "disposition": "unchanged_copy",
+      "path": "tests/test_dagshub_readiness.py",
+      "sha256": "09bd6ba1d25c15c56f2b62346195f82c6ccab968b859eec292b677ba8218759d",
+      "size_bytes": 4312
+    },
+    {
+      "category": "python_tests",
+      "disposition": "unchanged_copy",
+      "path": "tests/test_dvc_foundation.py",
+      "sha256": "16cc7a2e6a7acd924f7ad2b3f98a71c5fa87d6adf32e60cda958307db8ed0916",
+      "size_bytes": 5483
+    },
+    {
+      "category": "python_tests",
+      "disposition": "unchanged_copy",
+      "path": "tests/test_faults.py",
+      "sha256": "f10f04cc8a3cf915affe9783a9fd73bada2ae57fb71e233a55d32d4f0f80b3e8",
+      "size_bytes": 10874
+    },
+    {
+      "category": "python_tests",
+      "disposition": "unchanged_copy",
+      "path": "tests/test_reliability.py",
+      "sha256": "2abc2f03f3ea7513a0211521c5a661e397d2dbfc418079a6f8b0849ff4f38492",
+      "size_bytes": 11230
+    },
+    {
+      "category": "python_tests",
+      "disposition": "unchanged_copy",
+      "path": "tests/test_runtime_guards.py",
+      "sha256": "2b86306c03707b34f84d9c6914a1937e20e22edfbac50627c84780133467c4fd",
+      "size_bytes": 1638
+    },
+    {
+      "category": "python_tests",
+      "disposition": "unchanged_copy",
+      "path": "tests/test_tracking.py",
+      "sha256": "77d8a8de1ea961384bb1e3c48d6160a71c069813a9bc97914e28d31f11a7ca83",
+      "size_bytes": 2532
+    },
+    {
+      "category": "python_tests",
+      "disposition": "unchanged_copy",
+      "path": "tests/test_uncertainty.py",
+      "sha256": "8d67e445c5a9b1d544fb172150d6f4768b9aea4dc638351e6cb0200a5245fe43",
+      "size_bytes": 7932
+    },
+    {
+      "category": "python_tests",
+      "disposition": "unchanged_copy",
+      "path": "tests/test_xgboost_baseline.py",
+      "sha256": "48bf52419057fb9579869638b0173a62e3585e877f18d6cf713ebf94f9d3c1b3",
+      "size_bytes": 5646
+    }
+  ],
+  "git_initialized": false,
+  "manifest_records": 92,
+  "schema_version": 1,
+  "scope": "sanitized_public_source_only",
+  "self_hash_excluded": true,
+  "total_files_including_manifest": 93
+}

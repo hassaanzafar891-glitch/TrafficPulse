@@ -1,0 +1,88 @@
+{
+  "schema_version": 1,
+  "purpose": "offline_review_policy_not_runtime_connection_configuration",
+  "data_origin": "synthetic_generated_not_real_traffic",
+  "network_enabled": false,
+  "remote_write_approved": false,
+  "owner": null,
+  "repository": null,
+  "mlflow_endpoint": null,
+  "dvc_endpoint": null,
+  "default_action": "deny",
+  "approval_gates": [
+    "destination_and_visibility",
+    "authorized_account_and_permissions",
+    "live_documentation_and_permissions",
+    "git_history_and_content",
+    "metrics_payload",
+    "artifact_manifest",
+    "specific_remote_write"
+  ],
+  "candidate_metric_fields": [
+    "mae",
+    "rmse",
+    "valid_target_count",
+    "coverage",
+    "average_interval_width",
+    "calibration_count",
+    "fallback_frequency",
+    "primary_frequency",
+    "abstention_frequency",
+    "switches_per_1000_origins"
+  ],
+  "candidate_scalar_parameters": [
+    "seed",
+    "days",
+    "sensors",
+    "input_steps",
+    "target_steps",
+    "cpu_threads_max",
+    "timeout_seconds",
+    "wall_time_limit_seconds",
+    "nominal_coverage",
+    "model_refitted",
+    "independent_coverage_measured"
+  ],
+  "required_context": [
+    "synthetic_origin",
+    "partition_role",
+    "horizon",
+    "selection_or_calibration_diagnostic",
+    "not_independent_validation",
+    "source_commit",
+    "reviewed_run_id"
+  ],
+  "credential_env_names_for_later_review": [
+    "MLFLOW_TRACKING_USERNAME",
+    "MLFLOW_TRACKING_PASSWORD",
+    "DAGSHUB_USER_TOKEN"
+  ],
+  "automatic_artifact_upload": false,
+  "automatic_run_migration": false,
+  "automatic_model_registration": false,
+  "automatic_export_blocked_categories": [
+    "raw_datasets",
+    "restricted_sensor_metadata",
+    "unverified_rights_data",
+    "final_test_observations_or_scores",
+    "credentials",
+    "sqlite_and_sidecars",
+    "mlflow_store",
+    "config_blobs",
+    "local_paths",
+    "raw_predictions_or_residuals",
+    "controller_decision_arrays",
+    "generated_logs_or_browser_profiles",
+    "unreviewed_artifacts"
+  ],
+  "candidate_dvc_outputs_require_separate_approval": [
+    "artifacts/dvc_foundation/reviewed_bundle",
+    "artifacts/dvc_foundation/training_prefix.json",
+    "artifacts/dvc_foundation/verification.json"
+  ],
+  "superseded_run_keep_local": "excluded_private_run",
+  "visibility": null,
+  "authorized_account": null,
+  "automatic_metrics_upload": false,
+  "automatic_parameter_upload": false
+}
