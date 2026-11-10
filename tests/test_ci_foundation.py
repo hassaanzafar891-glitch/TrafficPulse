@@ -2,6 +2,9 @@
 import copy
 import importlib.util
 import json
+import os
+import tempfile
+from unittest.mock import patch
 from pathlib import Path
 import unittest
 
@@ -40,6 +43,34 @@ class CiFoundationTests(unittest.TestCase):
         with self.assertRaises(ValueError):self.validator.validate(changed)
         changed=copy.deepcopy(self.workflow);changed['env']['OMP_NUM_THREADS']='8'
         with self.assertRaises(ValueError):self.validator.validate(changed)
+
+    def test_descriptor_relative_cleanup_preserves_protected_path_guard(self):
+        runner = module('run_ci_checks')
+        # Real cleanup uses dir_fd on Linux and the portable path on Windows.
+        with tempfile.TemporaryDirectory(dir=ROOT/'reports/tmp') as location:
+            base = Path(location)
+            for name in ('artifacts', 'data', 'reports/local', '.dvc/cache', '.dvc/tmp'):
+                target = base/name
+                target.mkdir(parents=True, exist_ok=True)
+                (target/'dummy.txt').write_text('test-only', encoding='utf-8')
+            # Emulate the Linux descriptor audit path on every platform.
+            def audited_open(path, flags, mode, *, dir_fd):
+                runner.guard('open', (path, None, flags))
+                return 123
+            with patch.object(runner, '_OS_OPEN', side_effect=audited_open):
+                with patch.object(runner.os, 'readlink', return_value=str(base)):
+                    self.assertEqual(runner.descriptor_aware_open('artifacts', os.O_RDONLY, dir_fd=99), 123)
+                with patch.object(runner.os, 'readlink', return_value=str(ROOT)):
+                    for name in ('data', 'artifacts', 'reports/local', '.dvc/cache', '.dvc/tmp'):
+                        with self.assertRaises(RuntimeError):
+                            runner.descriptor_aware_open(name, os.O_RDONLY, dir_fd=99)
+                with patch.object(runner.os, 'readlink', side_effect=OSError):
+                    with self.assertRaises(RuntimeError):
+                        runner.descriptor_aware_open('artifacts', os.O_RDONLY, dir_fd=99)
+            for name in ('data', 'artifacts', 'reports/local', '.dvc/cache', '.dvc/tmp'):
+                with self.assertRaises(RuntimeError):
+                    runner.guard('open', (str(ROOT/name), None, os.O_RDONLY))
+        self.assertFalse(base.exists())
 
     def test_ci_cannot_select_artifact_tests_or_full_reserved_fixture(self):
         runner=module('run_ci_checks')

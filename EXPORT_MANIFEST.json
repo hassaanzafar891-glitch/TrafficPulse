@@ -387,10 +387,10 @@
     },
     {
       "category": "scripts",
-      "disposition": "unchanged_copy",
+      "disposition": "sanitized_derivative",
       "path": "scripts/run_ci_checks.py",
-      "sha256": "2726fa71334fac5a236b8bc172f24f584d8bf971235ee2014e767f478e8dedc4",
-      "size_bytes": 3065
+      "sha256": "555f720c8e7cceee72152d4590910bc780016849c3b5ffe5a4e4df32fe33c38b",
+      "size_bytes": 3833
     },
     {
       "category": "scripts",
@@ -583,10 +583,10 @@
     },
     {
       "category": "python_tests",
-      "disposition": "unchanged_copy",
+      "disposition": "sanitized_derivative",
       "path": "tests/test_ci_foundation.py",
-      "sha256": "512a4b79076d606fd84aab3a6b09fd9c2545101177cca3f6d54ccefcc4674e99",
-      "size_bytes": 2514
+      "sha256": "c1124849336ad7c1ad210686b196e472a022cd2e507ad4ddbd0cc5d8382ec762",
+      "size_bytes": 4449
     },
     {
       "category": "python_tests",

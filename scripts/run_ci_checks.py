@@ -15,18 +15,37 @@ def check_fixture_scope(days=28, sensors=4, seed=1729, *, stop_rows=None):
         raise RuntimeError('CI cannot construct the reserved synthetic suffix')
 
 
+def guard(event, args):
+    if event == 'socket.connect':
+        address = args[1]
+        if not isinstance(address, tuple) or not ipaddress.ip_address(address[0]).is_loopback:
+            raise RuntimeError('External network disabled during CI tests')
+    if event == 'open' and isinstance(args[0], (str, bytes, os.PathLike)):
+        path = Path(os.fsdecode(args[0])).resolve()
+        forbidden = ('data', 'artifacts', 'reports/local', '.dvc/cache', '.dvc/tmp')
+        if any(path == ROOT/p or ROOT/p in path.parents for p in forbidden):
+            raise RuntimeError('CI cannot access private data, artifacts, stores or caches')
+
+# The open audit event omits dir_fd. Normalize descriptor-relative os.open calls
+# before the event so the guard checks the actual target, not cwd / basename.
+_OS_OPEN = os.open
+
+
+def descriptor_aware_open(path, flags, mode=0o777, *, dir_fd=None):
+    if dir_fd is not None and not Path(os.fsdecode(path)).is_absolute():
+        try:
+            base = Path(os.readlink(f'/proc/self/fd/{dir_fd}'))
+        except (OSError, ValueError, NotImplementedError) as exc:
+            raise RuntimeError('CI cannot resolve directory-relative open safely') from None
+        if not base.is_absolute() or str(base).endswith(' (deleted)'):
+            raise RuntimeError('CI cannot resolve directory-relative open safely')
+        path = base / os.fsdecode(path)
+    return _OS_OPEN(path, flags, mode, dir_fd=dir_fd)
+
+
 def main():
     if sys.argv[1:] == ['--worker']:
-        def guard(event, args):
-            if event == 'socket.connect':
-                address = args[1]
-                if not isinstance(address, tuple) or not ipaddress.ip_address(address[0]).is_loopback:
-                    raise RuntimeError('External network disabled during CI tests')
-            if event == 'open' and isinstance(args[0], (str, bytes, os.PathLike)):
-                path = Path(os.fsdecode(args[0])).resolve()
-                forbidden = ('data', 'artifacts', 'reports/local', '.dvc/cache', '.dvc/tmp')
-                if any(path == ROOT/p or ROOT/p in path.parents for p in forbidden):
-                    raise RuntimeError('CI cannot access private data, artifacts, stores or caches')
+        os.open = descriptor_aware_open
         sys.addaudithook(guard)
         sys.path[:0] = [str(ROOT/'src'), str(ROOT/'tests')]
         # Test-created dummy artifact files stay under this disposable directory.
